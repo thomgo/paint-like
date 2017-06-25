@@ -112,15 +112,14 @@ h2 {
 #main {
   height: 85%;
   background-color: lightgrey;
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
+  position: relative;
 }
 
 .pixel {
   width: 1px;
   height: 1px;
   background-color: red;
+  position: absolute;
 }
 
 
