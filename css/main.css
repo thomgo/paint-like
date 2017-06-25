@@ -118,7 +118,6 @@ h2 {
 .pixel {
   width: 1px;
   height: 1px;
-  background-color: red;
   position: absolute;
 }
 

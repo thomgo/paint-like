@@ -3,10 +3,15 @@ var mousseTop = 0;
 var objectPosition = $("#main").position();
 var objectLeftPosition = objectPosition.left;
 var objectTopPosition = objectPosition.top;
+var bgColor = $("#color").val();
 
 $( document ).on( "mousemove", function( event ) {
   mousseLeft = event.pageX;
   mousseTop = event.pageY;
+});
+
+$("#color").change(function(){
+  bgColor = $(this).val();
 });
 
 $("#main").click(function() {
@@ -17,6 +22,7 @@ $("#main").click(function() {
 
     var div = $("<div class='pixel'></div>");
     div = div.css({
+      backgroundColor: bgColor,
       top: top,
       left: left
     });
