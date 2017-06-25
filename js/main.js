@@ -30,3 +30,31 @@ $("#main").click(function() {
     $(this).append(div);
   }
 });
+
+var downChecker = false;
+
+$("#main").on( "mousedown", function() {
+  downChecker = true;
+  $(this).on( "mousemove", function() {
+    if(downChecker === true) {
+      var left = mousseLeft - objectLeftPosition;
+      var top = mousseTop - objectTopPosition;
+
+      if(left >= 0 && top >= 0) {
+
+        var div = $("<div class='pixel'></div>");
+        div = div.css({
+          backgroundColor: bgColor,
+          top: top,
+          left: left
+        });
+
+        $(this).append(div);
+      }
+    }
+  });
+});
+
+$("#main").on( "mouseup", function(){
+  downChecker = false;
+});
