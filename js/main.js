@@ -10,6 +10,8 @@ var objectTopPosition = objectPosition.top;
 // Store the current color in the color input chosen by the user
 var bgColor = $("#color").val();
 
+var size = $("#range").val();
+
 // Check if the user hold the mouse down when make continuous lines
 var downChecker = false;
 
@@ -24,6 +26,10 @@ $("#color").change(function(){
   bgColor = $(this).val();
 });
 
+$("#range").change(function(){
+  size = $(this).val();
+});
+
 // Function to add a div with a background color and an absolute position to the painting div
 function setPixel(target) {
   // Absolute position of the div to add base on the mouse and painting div position on left and top
@@ -35,6 +41,8 @@ function setPixel(target) {
     // Create the div element and set the css
     var div = $("<div class='pixel'></div>");
     div = div.css({
+      width: size,
+      height: size,
       backgroundColor: bgColor,
       top: top,
       left: left

@@ -116,9 +116,13 @@ h2 {
 }
 
 .pixel {
-  width: 1px;
-  height: 1px;
   position: absolute;
+}
+
+input[type=range] {
+  width : 50%;
+  display: block;
+  margin: auto;
 }
 
 
