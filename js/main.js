@@ -4,6 +4,7 @@ var objectPosition = $("#main").position();
 var objectLeftPosition = objectPosition.left;
 var objectTopPosition = objectPosition.top;
 var bgColor = $("#color").val();
+var downChecker = false;
 
 $( document ).on( "mousemove", function( event ) {
   mousseLeft = event.pageX;
@@ -14,7 +15,7 @@ $("#color").change(function(){
   bgColor = $(this).val();
 });
 
-$("#main").click(function() {
+function setPixel(target) {
   var left = mousseLeft - objectLeftPosition;
   var top = mousseTop - objectTopPosition;
 
@@ -27,30 +28,19 @@ $("#main").click(function() {
       left: left
     });
 
-    $(this).append(div);
+    $(target).append(div);
   }
-});
+}
 
-var downChecker = false;
+$("#main").click(function() {
+  setPixel($(this));
+});
 
 $("#main").on( "mousedown", function() {
   downChecker = true;
   $(this).on( "mousemove", function() {
     if(downChecker === true) {
-      var left = mousseLeft - objectLeftPosition;
-      var top = mousseTop - objectTopPosition;
-
-      if(left >= 0 && top >= 0) {
-
-        var div = $("<div class='pixel'></div>");
-        div = div.css({
-          backgroundColor: bgColor,
-          top: top,
-          left: left
-        });
-
-        $(this).append(div);
-      }
+      setPixel($(this));
     }
   });
 });
