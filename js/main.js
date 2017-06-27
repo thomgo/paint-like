@@ -10,7 +10,11 @@ var objectTopPosition = objectPosition.top;
 // Store the current color in the color input chosen by the user
 var bgColor = $("#color").val();
 
+// Store the current size based on the range input chosen by the user
 var size = $("#range").val();
+
+// Default tool is a square
+var tool = "carré";
 
 // Check if the user hold the mouse down when make continuous lines
 var downChecker = false;
@@ -30,6 +34,10 @@ $("#range").change(function(){
   size = $(this).val();
 });
 
+$(".tool").click(function(){
+  tool = $(this).text().toLowerCase();
+});
+
 // Function to add a div with a background color and an absolute position to the painting div
 function setPixel(target) {
   // Absolute position of the div to add base on the mouse and painting div position on left and top
@@ -41,12 +49,19 @@ function setPixel(target) {
     // Create the div element and set the css
     var div = $("<div class='pixel'></div>");
     div = div.css({
-      width: size,
-      height: size,
-      backgroundColor: bgColor,
-      top: top,
-      left: left
+      "width": size,
+      "height": size,
+      "background-color": bgColor,
+      "top": top,
+      "left": left
     });
+
+    if(tool === "rond") {
+      div = div.css("border-radius", "100%");
+    }
+    else if (tool === "gomme") {
+      div = div.css("background-color", $("#main").css("background-color"));
+    }
 
     $(target).append(div);
   }
