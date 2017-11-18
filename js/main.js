@@ -35,7 +35,7 @@ $("#range").change(function(){
 });
 
 $(".tool").click(function(){
-  tool = $(this).text().toLowerCase();
+  tool = $(this).attr('id').toLowerCase();
 });
 
 // Function to add a div with a background color and an absolute position to the painting div
