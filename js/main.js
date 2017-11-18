@@ -2,10 +2,12 @@
 var mousseLeft = 0;
 var mousseTop = 0;
 
-// Store the painting div positon on left and top
+// Store the painting div positon on left, top, right and bottom
 var objectPosition = $("#main").position();
 var objectLeftPosition = objectPosition.left;
 var objectTopPosition = objectPosition.top;
+var objectRightPosition = objectLeftPosition + $("#main").width();
+var objectBottomPosition = objectTopPosition + $("#main").height();
 
 // Store the current color in the color input chosen by the user
 var bgColor = $("#color").val();
@@ -43,9 +45,12 @@ function setPixel(target) {
   // Absolute position of the div to add base on the mouse and painting div position on left and top
   var left = mousseLeft - objectLeftPosition;
   var top = mousseTop - objectTopPosition;
+  //Additonnal variables to check on the right and bottom side
+  var right = objectRightPosition - mousseLeft - size;
+  var bottom = objectBottomPosition - mousseTop - size ;
 
   // Check if the user is inside the painting div
-  if(left >= 0 && top >= 0) {
+  if((left >= 0 && top >= 0 && right >= 0 && bottom >= 0)) {
     // Create the div element and set the css
     var div = $("<div class='pixel'></div>");
     div = div.css({
