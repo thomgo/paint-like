@@ -94,13 +94,16 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+
+/*Body and the main section that holds the app*/
+
 body {
-  background-color: black;
+  background-color: #120f0f;
   font-family: 'Pacifico', cursive;
 }
 
 section {
-  background-color: grey;
+  background-color: #5e3838;
   width: 100%;
   max-width: 800px;
   height: 100vh;
@@ -109,32 +112,49 @@ section {
   text-align: center;
   color: white;
   margin-top: 2em;
+  border-radius: 5px;
 }
 
-h2 {
-  margin: 0;
-  font-size: 1em;
-}
+/*Header of the apps here you find the different tools*/
 
 #head {
   height: 15%;
   display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
+.headElement {
+  width: 30%;
+}
+
+h2 {
+  margin: 0;
+  font-size: 1.5em;
+  margin-bottom: .2em;
+}
+
+.fa {
+  margin-right: .2em;
+  margin-left: : .2em;
+}
+
+input[type=range] {
+  width : 100%;
+  display: block;
+  margin: auto;
+}
+
+/*Painting zone of the app*/
 #main {
-  height: 85%;
+  height: 80%;
   background-color: white;
   position: relative;
+  margin: 1em;
 }
 
 .pixel {
   position: absolute;
-}
-
-input[type=range] {
-  width : 50%;
-  display: block;
-  margin: auto;
 }
 
 
