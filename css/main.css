@@ -94,8 +94,13 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-section {
+body {
   background-color: black;
+  font-family: 'Pacifico', cursive;
+}
+
+section {
+  background-color: grey;
   width: 100%;
   max-width: 800px;
   height: 100vh;
@@ -103,15 +108,22 @@ section {
   margin: auto;
   text-align: center;
   color: white;
+  margin-top: 2em;
 }
 
 h2 {
   margin: 0;
+  font-size: 1em;
+}
+
+#head {
+  height: 15%;
+  display: flex;
 }
 
 #main {
   height: 85%;
-  background-color: lightgrey;
+  background-color: white;
   position: relative;
 }
 

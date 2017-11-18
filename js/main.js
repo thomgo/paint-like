@@ -25,7 +25,7 @@ $( document ).on( "mousemove", function( event ) {
   mousseTop = event.pageY;
 });
 
-// When the user changer the color in the input, the bgColor vairable is reassigned
+// When the user changes the color in the input, the bgColor vairable is reassigned
 $("#color").change(function(){
   bgColor = $(this).val();
 });
